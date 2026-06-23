@@ -1,0 +1,67 @@
+﻿
+OnMouseMove
+ {
+		if reference3 == 0 
+		{
+			MouseMoveSakura
+		}
+		else 
+		{
+			MouseMoveKero
+		}
+ }
+
+MouseMoveSakura
+ {
+	if reference4 != ""
+ 	{
+ 		stroke++ 
+ 		if stroke >= 40 
+		{
+ 			stroke = 0 
+			if reference4 == "BNoise" 
+ 			{
+				//"\0\s[0]Touch that dial!\e"
+				//"\0\s[0]Just press it already...\e"
+				//"\0\s[0]You need to press it.\e"
+ 			}
+ 			elseif reference4 == "Top" 
+ 			{
+ 				//"\0\s[0]*blush blush*\e"
+ 			}
+			
+ 		}
+	}
+ 	else
+	{
+		stroke = 0
+ 	}
+}
+
+OnMouseDoubleClick
+ {
+
+	if reference5 == 0 
+	{
+	 	if reference3 == 0
+		{
+		MouseDoubleClickSakura
+		}
+		else
+		{
+ 		MouseDoubleClickKero
+		}
+	}
+ }
+
+MouseDoubleClickSakura
+ {
+ 	if reference4 == "BNoise" 
+	{
+		RandomTalk
+ 	}
+	else
+ 	{
+ 		OpenSakuraMenu
+	}
+ }

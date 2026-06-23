@@ -1,0 +1,130 @@
+﻿
+OnAiTalk
+ {
+	if RAND(100) < communicateratio
+ 	{
+ 		StartCommunicate
+	}
+ 	else
+	{
+			if CHAIN.IDName == "" {
+ 				lastTalk = RandomTalk
+			}
+			else {
+				lastTalk = ChainTalk
+			}
+			lastTalk
+	}
+ }
+
+RandomTalk : nonoverlap_pool
+{
+	"\0\s[0]\_v[wav\and danny, have some pills.wav]"
+	"\0\s[0]\_v[wav\and he's dead.wav]"
+	"\0\s[0]\_v[wav\are you having fun yet.wav]"
+	"\0\s[0]\_v[wav\back in the day.wav]"
+	"\0\s[0]\_v[wav\can't you read it.wav]"
+	"\0\s[0]\_v[wav\coming straight from your house.wav]"
+	"\0\s[0]\_v[wav\DECEMBER DECEMBER DECEMBER.wav]"
+	"\0\s[0]\_v[wav\don't you know you're my favorite, DON'T YOU KNOW THAT I CARE ABOUT YOU.wav]"
+	"\0\s[0]\_v[wav\everybody's favorite subject, maath.wav]"
+	"\0\s[0]\_v[wav\everyone has uno.wav]"
+	"\0\s[0]\_v[wav\figure.wav]"
+	"\0\s[0]\_v[wav\four way uncontrolled intersection.wav]"
+	"\0\s[0]\_v[wav\gordon, careful, the hole.wav]"
+	"\0\s[0]\_v[wav\GOTTA SWEEP SWEEP SWEEP.wav]"
+	"\0\s[0]\_v[wav\have some pills.wav]"
+	"\0\s[0]\_v[wav\hellooo douglas douglas.wav]"
+	"\0\s[0]\_v[wav\I cherish you.wav]"
+	"\0\s[0]\_v[wav\I NEED YOU TO BE LIKE ME.wav]"
+	"\0\s[0]\_v[wav\I was not white boy wasted.wav]"
+	"\0\s[0]\_v[wav\I will be found behind a bridge not alive tomorrow morning.wav]"
+	"\0\s[0]\_v[wav\if I didn't do it someone else would have.wav]"
+	"\0\s[0]\_v[wav\im gonna kill ya.wav]"
+	"\0\s[0]\_v[wav\I'm the horse king, I don't gotta tell you shit.wav]"
+	"\0\s[0]\_v[wav\it figures.wav]"
+	"\0\s[0]\_v[wav\it's the future.wav]"
+	"\0\s[0]\_v[wav\look at how small you are, how worthless you are.wav]"
+	"\0\s[0]\_v[wav\meow meow meow.wav]"
+	"\0\s[0]\_v[wav\my name is skylar white yo.wav]"
+	"\0\s[0]\_v[wav\poppy.wav]"
+	"\0\s[0]\_v[wav\roll my dice.wav]"
+	"\0\s[0]\_v[wav\segregation was the worst thing this country ever did.wav]"
+	"\0\s[0]\_v[wav\stay in the box.wav]"
+	"\0\s[0]\_v[wav\that's what it do.wav]"
+	"\0\s[0]\_v[wav\the chaos emeralds.wav]"
+	"\0\s[0]\_v[wav\the death penalty.wav]"
+	"\0\s[0]\_v[wav\THE MIMIC.wav]"
+	"\0\s[0]\_v[wav\we all answered the questions.wav]"
+	"\0\s[0]\_v[wav\what makes you so special.wav]"
+	"\0\s[0]\_v[wav\why doesn't she love you anymore.wav]"
+	"\0\s[0]\_v[wav\william aafton.wav]"
+	"\0\s[0]\_v[wav\woah he's bisexual.wav]"
+	
+	//THIS GHOST IS SUPPOSED TO HAVE SUBTITLES BUT I DON'T HAVE TIME TO MAKE THE BALLOON OR PROPERLY SPACE OUT THE TEXT SO IT'S JUST NOT GOING TO HAVE SPEECH BUBBLES ACTUALLY
+	
+	//"\0\s[0]\_v[wav\are you having fun yet.wav]Are you having fun yet?"
+	//"\0\s[0]\_v[wav\back in the day.wav]So, back in the day jingle jingle jingle back in the day before the Backrooms were a thing. Okay? Pay- jingle jingle pay attention." FIX
+	//"\0\s[0]\_v[wav\coming straight from your house.wav]Coming straight from your house! Coming!" FIX
+	//"\0\s[0]\_v[wav\DECEMBER DECEMBER DECEMBER.wav]DECEMBER DECEMBER DECEMBER."
+	//"\0\s[0]\_v[wav\don't you know you're my favorite, DON'T YOU KNOW THAT I CARE ABOUT YOU.wav]Don't you know you're my favorite? DON'T YOU KNOW THAT I CARE ABOUT YOU?" FIX
+	//"\0\s[0]\_v[wav\everybody's favorite subject, maath.wav]Now it's time for everybody's favorite subject, maath." FIX
+	//"\0\s[0]\_v[wav\figure.wav]Figure."
+	//"\0\s[0]\_v[wav\four way uncontrolled intersection.wav]Now Pomni, don't feel like I need to go before you just because I have the right of way in a four way uncontrolled intersection."
+	//"\0\s[0]\_v[wav\gordon, careful, the hole.wav]The hole, careful. Gordon, careful. The hole." FIX
+	//"\0\s[0]\_v[wav\GOTTA SWEEP SWEEP SWEEP.wav]LOOKS LIKE IT'S SWEEPIN TIME. GOTTA SWEEP SWEEP SWEEP" FIX
+	//"\0\s[0]\_v[wav\poppy.wav]Poppy~" FIX
+}
+
+HourCheck
+{
+if passmin >= 59
+	{
+		passmin = 0
+		passhour = passhour + 1
+	}
+}
+
+
+OnMinuteChange 
+ {
+	HourCheck
+	--
+ }
+
+OnSecondChange
+ {
+	if passsec == 59
+ 		{
+	 	passsec = 0
+ 		passmin = passmin + 1
+		}
+ 	else
+ 		{
+	 	passsec = passsec + 1
+		}
+		
+		
+
+ }
+
+OnSurfaceRestore
+ {
+	"\0\s[0]\1\s[10]\e"
+ }
+
+OnKeyPress
+{
+	if reference0 == "t"
+	{
+	OnAiTalk
+	}
+	elseif reference0 == "r"
+	{
+	OnLastTalk
+	}
+	elseif reference0 == "f1"
+	{
+	"\![open,readme]"
+	}
+}
