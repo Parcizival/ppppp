@@ -1,0 +1,23 @@
+
+surface0
+
+{
+collision0,79,57,97,75,BNoise
+collision1,210,250,240,270,BMenu
+
+element0,overlay,surface0.png,0,0
+
+}
+//button clicked
+surface1
+{
+element0,overlay,surface1501.png,0,0
+}
+
+surface.append500-590
+
+{
+collision0,15,16,111,48,Face
+collision1,40,50,102,84,Point
+
+}
